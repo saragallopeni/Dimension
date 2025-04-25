@@ -1,0 +1,50 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: 'black';
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'Transformers';
+    src: url('./styles/Transformers\ Movie.ttf');
+  }
+  .title{
+    font-family: 'Transformers';
+  }
+
+  .trans{
+    font-family: 'Wallpoet';
+  }
+
+  
+button:hover {
+    cursor: pointer;
+    width: 155px;
+    border: 6px solid white;
+  } 
+
+
+  @media (max-width: 768px) {
+    .first_animation {
+      flex-direction: column;
+      top: 2.5%;
+    }
+
+
+  }
+
+  @media (max-width: 768px) {
+    .first_animation {
+      top: 2%;
+    }
+
+
+  }
+
+  @media (max-width: 1090px) {
+    .first_animation {
+      top: 1%;
+    }
+
+  }

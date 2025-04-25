@@ -1,0 +1,13 @@
+.main_cart{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+}
+.carts{
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    border: 2px solid white;
+}

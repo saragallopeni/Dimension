@@ -1,0 +1,33 @@
+.header{
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+    display:  flex;
+    justify-content:space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    position: absolute;
+}
+a{
+    margin-right: 25px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+h1{
+    color: white;
+}
+.logo{
+    box-sizing: border-box;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.header{
+    position: absolute;
+}
