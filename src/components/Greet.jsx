@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import textureImage from "../moon.jpg";
+import textureImage from "/moon.jpg";
 import { EquirectangularReflectionMapping, TextureLoader } from "three";
 import { useRef } from "react";
 

@@ -1,13 +1,8 @@
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
-import textureImage from "../carpaint.jpg";
 import { TextureLoader } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
-import cameraImage from "../camera.png";
-import pinkTexture from "../pinktexture.jpg";
-import stars from "../1243.jpg";
-
-
+import cameraImage from "/camera.png";
 
 const Samsung4 = () => {
      const geometry = new RoundedBoxGeometry(5, 2.5, 0.2, 15, 0.2);
@@ -15,8 +10,6 @@ const Samsung4 = () => {
      const camera = new RoundedBoxGeometry(1.5, 1, 0.04, 1, 1);
 
      const button = new RoundedBoxGeometry(0.3, 0.2, 0.11, 12, 1);
-
-         const starsTexture = useLoader(TextureLoader ,stars);
      
 
 
@@ -37,9 +30,7 @@ const Samsung4 = () => {
        }
      });
 
-     const texture = useLoader(TextureLoader, textureImage);
      const cameraTexture = useLoader(TextureLoader, cameraImage);
-     const pink = useLoader(TextureLoader, pinkTexture);
 
     return(
 

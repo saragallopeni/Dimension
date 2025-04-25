@@ -1,29 +1,4 @@
-//this is a component
-// const App = () => {
-//   return <section>hello</section>
-// };
 
-
-// function App(params) {
-//   return <h1>Hello, World</h1>
-// }
-
-//props from parent to child 
-//    <User name='HuXn WebDev'/>
-// const User = (props) => {
-//   console.log(props);
-//   return  <section></section>;
-// };
-//or
-//variable name of the props 
-// // const User = (name) => {
-//   console.log(name);
-//   return  <section></section>;
-// };
-
-
-// export default App;
-//import Greet from "./components/Greet";
 import "./index.css";
 import Footer from "./components/Footer";
 import { Canvas} from '@react-three/fiber';

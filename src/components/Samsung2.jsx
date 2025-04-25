@@ -1,10 +1,8 @@
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
-import textureImage from "../carpaint.jpg";
 import { TextureLoader } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
-import cameraImage from "../camera.png";
-import pinkTexture from "../pinktexture.jpg";
+import cameraImage from "/camera.png";
 import { VideoTexture } from "three";
 const Samsung2 = () => {
      const geometry = new RoundedBoxGeometry(5, 2.5, 0.2, 15, 0.2);
@@ -46,9 +44,7 @@ const Samsung2 = () => {
        }
      });
 
-     const texture = useLoader(TextureLoader, textureImage);
      const cameraTexture = useLoader(TextureLoader, cameraImage);
-     const pink = useLoader(TextureLoader, pinkTexture);
 
     return(
 
