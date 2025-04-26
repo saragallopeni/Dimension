@@ -231,19 +231,28 @@ const App = () => {
 
 
         {/* first animation*/}
-      
+      <div style={{
+        display: 'flex', 
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100vw',
+              height: 'dvh',
+              flexWrap: 'columns'
+      }}>
       <div 
       className="first_animation"
       style={{
-        width: '100vw',
+        width: '80vw',
         height: '100dvh',
         marginTop: '5%',
         boxSizing: 'border-box',
         display: 'flex',
-        flexWrap: 'column',
+        border: '2px solid white',
+        flexDirection: 'column',
         zIndex: '99',
         left: '0',
-        gridTemplateColumns: '60% 40%'
+        gridTemplateColumns: '60% 40%',
+        gridGap: '2%'
             }}>
 
 
@@ -272,10 +281,11 @@ const App = () => {
       <Stats/>
       </Canvas>
       </div>
+      </div>
 
 
-      <div style={{width: '100vw', height: '150dvh',display: 'flex',flexWrap: 'columns', justifyContent: 'center', alignItems: 'center' }}>
-        <div className="boxshadow" style={{width: '95vw', height: '80dvh',borderRadius: '20px', boxShadow: ' 0 -2px 2px darkblue' }}>
+      <div style={{width: '100vw', height: '150dvh',display: 'flex',flexDirection: 'columns', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="boxshadow" style={{width: '80vw', height: '80dvh',borderRadius: '20px', boxShadow: ' 0 -2px 2px darkblue' }}>
           <Canvas style={{position: 'absolute', zIndex: '9999'}}>
           <ambientLight intensity={5}/>
                               <directionalLight position={[0,2,3]} intensity={3} color={'white'}/>
@@ -288,7 +298,7 @@ const App = () => {
             <Stats />
           </Canvas>
         </div>
-        <div style={{position: 'absolute', color: 'white', left: '6%',top: '205dvh', fontFamily: 'Archivo', fontWeight: '700'}}>
+        <div style={{position: 'absolute', color: 'white', left: '12vw',top: '205dvh', fontFamily: 'Archivo', fontWeight: '700'}}>
           <h1>It’s not just a product
             <br></br> — 
             it’s a world
@@ -303,20 +313,20 @@ const App = () => {
       </div>
       
       
-       <div style={{ display: 'flex',flexWrap: 'columns',justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',padding: '5%',boxSizing:'border-box',width: '70vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontWeight: '700', fontSize: '28px'}}>
-        <Canvas camera={{position: [0,0,-2]}} style={{position: 'absolute', left: '-35%', top: '225dvh'}}>          
+       <div style={{ display: 'flex',flexDirection: 'columns',justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
+        <div style={{display: 'flex',flexDirection: 'columns', justifyContent: 'center', alignItems: 'center',padding: 'vw',boxSizing:'border-box',width: '70vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontWeight: '700', fontSize: '25px'}}>
+        <Canvas camera={{position: [0,0,-2]}} style={{display: 'flex',position: 'absolute', left: '-32vw', top: '225dvh'}}>          
           <directionalLight position={[1,-2,0]} intensity={0.7} />
           <directionalLight position={[0,-2,0]} intensity={0.5}/>
           {/* <directionalLight position={[0,-1,0]} intensity={0.2}/> */}
           <Greet></Greet>
         </Canvas>
-        <h1>Where <br></br> form meets feeling — <br></br>explore 3D not as a shape,<br></br> but as a dimension of experience</h1>
+        <h1 style={{display: 'flex', flexDirection: 'column'}}>Where <br></br> form meets feeling — <br></br>explore 3D not as a shape,<br></br> but as a dimension of experience</h1>
         </div>
        </div>
 
 
-       <div style={{ width: '100vw',display: 'grid',flexWrap: 'rows', gridTemplateColumns: 'repeat(3,20%)',gridGap: '1%',padding: '35px',display: 'flex', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
+       <div style={{ width: '100vw',display: 'grid',flexDirection: 'column', gridTemplateColumns: 'repeat(3,20%)',gridGap: '1%',padding: '35px',display: 'flex', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
         <Canvas camera={{position: [0,0,-3.5]}} >
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>
