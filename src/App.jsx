@@ -321,7 +321,7 @@ const App = () => {
           {/* <directionalLight position={[0,-1,0]} intensity={0.2}/> */}
           <Greet></Greet>
         </Canvas>
-        <h1 style={{display: 'flex', flexDirection: 'column'}}>Where <br></br> form meets feeling — <br></br>explore 3D not as a shape,<br></br> but as a dimension of experience</h1>
+        <h1 className="windowsmall" style={{display: 'flex', flexDirection: 'column'}}>Where <br></br> form meets feeling — <br></br>explore 3D not as a shape,<br></br> but as a dimension of experience</h1>
         </div>
        </div>
 
