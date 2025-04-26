@@ -72,7 +72,7 @@ const App = () => {
   
 
   const header_style ={
-    position: 'fixed', 
+    position: 'relative', 
     width: '100vw', 
     height: '80px',
     top: '0',
@@ -80,7 +80,7 @@ const App = () => {
     padding: '20px',
     boxSizing: 'border-box',
     display:  'flex',
-    flexWrap: 'nowrap',
+    flexDirection: 'column',
     justifyContent:'space-between',
     fontFamily : 'Schibsted Grotesk',
     alignItems: 'center',
