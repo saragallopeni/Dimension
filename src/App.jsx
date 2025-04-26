@@ -41,29 +41,9 @@ const App = () => {
     });
 
 
-    tl.to('.slideoff',
-      {
-        top: '2%',
-        zIndex: '9999',
-        stagger: 1,
-        ease: 'power1.inOut',
-        scrollTrigger: {
-          start: 'top bottom', 
-          end: 'bottom top',   
-          scrub: true,  
-          toggleActions: 'play reverse play reverse',       
-        }
-      }
-    )
-    .to('.slideoff',{
-      backgroundImage: 'none',
-    })
-    .to('.slideoff',{
-      backgroundImage: 'none',
-    })
-    .to('.sams',{
-      opacity: '1',
-    })
+
+  
+   
     
 
 
@@ -79,40 +59,7 @@ const App = () => {
     });
 
 
-    gsap.to('.planets', {
-      opacity: 1,
-      ease: 'power2.out',
-      duration: 2, 
-      scrollTrigger: {
-        scrub: 1.5,
-        start: "65% top",
-        end: "bottom bottom",
-      }
-    });
-
-    gsap.to('.twophones', {
-      borderRadius: '20px',
-      width: '70%',
-      ease: 'power2.out',
-      duration: 2, 
-      scrollTrigger: {
-        scrub: 1.5,
-        start: "90% top",
-        end: "bottom bottom",
-      }
-    });
-
-    gsap.to('.adapt', {
-      width: '70%',
-      top: '5%',
-      ease: 'expo.inOut',
-      duration: 2, 
-      scrollTrigger: {
-        scrub: 1.5,
-        start: "120% top",
-        end: "bottom bottom",
-      }
-    });
+  
 
 
  
@@ -160,10 +107,9 @@ const App = () => {
     width: 'auto',
     
   }
+
    
   window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
   
@@ -247,7 +193,6 @@ const App = () => {
         marginTop: '5%',
         boxSizing: 'border-box',
         display: 'flex',
-        border: '2px solid white',
         flexDirection: 'column',
         zIndex: '99',
         left: '0',
@@ -330,7 +275,7 @@ const App = () => {
         <Canvas camera={{position: [0,0,-3.5]}} >
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>
-          <Samsung3 style={{position: 'absolute'}}></Samsung3>
+          <Samsung3></Samsung3>
           <OrbitControls minDistance={4} maxDistance={4} maxPolarAngle = {Math.PI} minPolarAngle = {0} rotateSpeed = {0.4 }zoomSpeed = {0.6} />
           <Stats />
         </Canvas>
