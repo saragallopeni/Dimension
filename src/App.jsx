@@ -1,6 +1,5 @@
 
 import "./index.css";
-import Footer from "./components/Footer";
 import { Canvas} from '@react-three/fiber';
 import gsap from "gsap";
 import React, {useEffect } from 'react';
@@ -18,7 +17,6 @@ const App = () => {
 
 
   gsap.registerPlugin(ScrollTrigger);
-
 
   useEffect(() => {
    const tl = gsap.timeline();
@@ -87,7 +85,6 @@ const App = () => {
     fontFamily : 'Schibsted Grotesk',
     alignItems: 'center',
     color: 'white',
-    position: 'relative',
     backgroundColor: ' black'
   }
 
@@ -214,7 +211,7 @@ const App = () => {
             <Stats />
                         </Canvas>
 
-        <Canvas style={{backgroundColor: 'black'}} camera={{position:[0,0,6.5]}} >
+        <Canvas style={{backgroundColor: 'black'}} camera={{position:[0,0,6.5], aspect: window.innerWidth / window.innerHeight }} >
         <ambientLight intensity={5}/>
                               <directionalLight position={[0,2,3]} intensity={3} color={'white'}/>
                               <directionalLight position={[0,2,-3]} intensity={3} color={'darkred'}/>
@@ -258,9 +255,9 @@ const App = () => {
       </div>
       
       
-       <div style={{ display: 'flex',flexDirection: 'columns',justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
-        <div style={{display: 'flex',flexDirection: 'columns', justifyContent: 'center', alignItems: 'center',padding: 'vw',boxSizing:'border-box',width: '70vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontWeight: '700', fontSize: '25px'}}>
-        <Canvas camera={{position: [0,0,-2]}} style={{display: 'flex',position: 'absolute', left: '-32vw', top: '225dvh'}}>          
+       <div style={{ display: 'flex',flexDirection: 'column',justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
+        <div style={{display: 'flex',flexDirection: 'column', justifyContent: 'center', alignItems: 'center',padding: 'vw',boxSizing:'border-box',width: '70vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontWeight: '700', fontSize: '25px'}}>
+        <Canvas camera={{position: [0,0,-2], aspect: window.innerWidth / window.innerHeight }} style={{display: 'flex',position: 'absolute', left: '-32vw', top: '225dvh'}}>          
           <directionalLight position={[1,-2,0]} intensity={0.7} />
           <directionalLight position={[0,-2,0]} intensity={0.5}/>
           {/* <directionalLight position={[0,-1,0]} intensity={0.2}/> */}
@@ -271,8 +268,8 @@ const App = () => {
        </div>
 
 
-       <div style={{ width: '100vw',display: 'grid',flexDirection: 'column', gridTemplateColumns: 'repeat(3,20%)',gridGap: '1%',padding: '35px',display: 'flex', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
-        <Canvas camera={{position: [0,0,-3.5]}} >
+       <div style={{ width: '100vw',flexDirection: 'column', gridTemplateColumns: 'repeat(3,20%)',gridGap: '1%',padding: '35px',display: 'flex', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
+        <Canvas camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>
           <Samsung3></Samsung3>
@@ -280,7 +277,7 @@ const App = () => {
           <Stats />
         </Canvas>
 
-        <Canvas camera={{position: [0,0,-3.5]}} >
+        <Canvas camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>
           <Samsung4 ></Samsung4>
@@ -288,7 +285,7 @@ const App = () => {
           <Stats />
         </Canvas>
 
-        <Canvas camera={{position: [0,0,-3.5]}} >
+        <Canvas camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>
           <Samsung5></Samsung5>
