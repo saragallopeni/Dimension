@@ -256,7 +256,7 @@ const App = () => {
       
        <div style={{display: 'flex',justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',padding: 'vw',boxSizing:'border-box',width: '70vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontWeight: '700', fontSize: '25px'}}>
-        <Canvas camera={{position: [0,0,-2], aspect: window.innerWidth / window.innerHeight }} style={{position: 'absolute', left: '-32vw', top: '225dvh'}}>          
+        <Canvas camera={{position: [0,0,-2], aspect: window.innerWidth / window.innerHeight }} style={{position: 'absolute', left: '-32vw', top: '200dvh'}}>          
           <directionalLight position={[1,-2,0]} intensity={0.7} />
           <directionalLight position={[0,-2,0]} intensity={0.5}/>
           {/* <directionalLight position={[0,-1,0]} intensity={0.2}/> */}
@@ -267,12 +267,12 @@ const App = () => {
        </div>
 
 
-       <div style={{ width: '100vw', gridTemplateColumns: 'repeat(3,20%)',gridGap: '1%',padding: '35px', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
-        <Canvas style={{diplay: 'flex'}} camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
+       <div style={{display: 'flex', width: '100vw', gridTemplateColumns: 'repeat(3,40%)',gridGap: '1%',padding: '35px', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
+        <Canvas camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>
           <Samsung3></Samsung3>
-          <OrbitControls minDistance={4} maxDistance={4} maxPolarAngle = {Math.PI}  rotateSpeed = {0.4 }zoomSpeed = {0.6} />
+          <OrbitControls minDistance={4} maxDistance={4} rotateSpeed = {0.4 }zoomSpeed = {0.6} />
           <Stats />
         </Canvas>
 
@@ -280,7 +280,7 @@ const App = () => {
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>
           <Samsung4 ></Samsung4>
-          <OrbitControls minDistance={4} maxDistance={4} maxPolarAngle = {Math.PI} rotateSpeed = {0.4 }zoomSpeed = {0.6}/>
+          <OrbitControls minDistance={4} maxDistance={4} rotateSpeed = {0.4 }zoomSpeed = {0.6}/>
           <Stats />
         </Canvas>
 
@@ -288,7 +288,7 @@ const App = () => {
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>
           <Samsung5></Samsung5>
-          <OrbitControls minDistance={4} maxDistance={4} maxPolarAngle = {Math.PI}  rotateSpeed = {0.4 }zoomSpeed = {0.6}/>
+          <OrbitControls minDistance={4} maxDistance={4} rotateSpeed = {0.4 }zoomSpeed = {0.6}/>
           <Stats />
         </Canvas>        
 
