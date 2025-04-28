@@ -1,8 +1,9 @@
 body{
     padding: 0;
     margin: 0;
-    background-color: 'black';
     overflow-x: hidden;
+    background-image: url("./wp5.png");
+    background-size: cover;
 
 }
 
@@ -26,34 +27,18 @@ button:hover {
   } 
 
 
-  @media (max-width: 768px) {
+  @media (max-width: 1090px) {
     .first_animation {
       flex-direction: column;
-      top: 2.5%;
+      top: 2%; 
+      width: 90vw;
+      height: auto; 
     }
-    .smallwindow{
+    .smallwindow {
       font-size: 20px;
       margin-top: 1%;
     }
-    body{
+    body {
       overflow-x: hidden;
     }
-
-
-
-  }
-
-  @media (max-width: 768px) {
-    .first_animation {
-      top: 2%;
-    }
-
-
-  }
-
-  @media (max-width: 1090px) {
-    .first_animation {
-      top: 1%;
-    }
-
   }

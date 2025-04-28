@@ -1,10 +1,11 @@
+
 import { Canvas, useFrame } from "@react-three/fiber";
-import textureImage from "/moon.jpg";
+import textureImage from "/sur.jpg";
 import { EquirectangularReflectionMapping, TextureLoader } from "three";
 import { useRef } from "react";
 
 
-const Greet = () => {
+const SecondMoon = () => {
 
 
       const texture = new TextureLoader().load(textureImage);
@@ -22,9 +23,9 @@ const Greet = () => {
       return(
         
 
-        <mesh  position={[0,0,-1.3]}  ref={coreRef} castShadow>
-          <sphereGeometry args={[0.30, 124,124]}/>
-          <meshPhongMaterial side={2}  map={texture} bumpMap={texture} bumpScale={0.05} specular={'darkgray'} shininess={10} />
+        <mesh  position={[0,0,4.4]}  ref={coreRef} receiveShadow>
+          <sphereGeometry args={[0.30, 24,24]}/>
+          <meshPhysicalMaterial side={2}  map={texture}  bumpMap={texture} bumpScale={5.0} specular={'lighblue'} shininess={10} wireframe color={'white'}/>
         </mesh>
 
 
@@ -33,4 +34,4 @@ const Greet = () => {
 };
 
 
-export default Greet;
+export default SecondMoon;
