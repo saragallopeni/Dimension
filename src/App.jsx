@@ -254,8 +254,8 @@ const App = () => {
       </div>
       
       
-       <div style={{justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
-        <div style={{ justifyContent: 'center', alignItems: 'center',padding: 'vw',boxSizing:'border-box',width: '70vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontWeight: '700', fontSize: '25px'}}>
+       <div style={{display: 'flex',justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',padding: 'vw',boxSizing:'border-box',width: '70vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontWeight: '700', fontSize: '25px'}}>
         <Canvas camera={{position: [0,0,-2], aspect: window.innerWidth / window.innerHeight }} style={{position: 'absolute', left: '-32vw', top: '225dvh'}}>          
           <directionalLight position={[1,-2,0]} intensity={0.7} />
           <directionalLight position={[0,-2,0]} intensity={0.5}/>
