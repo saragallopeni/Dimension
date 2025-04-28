@@ -35,6 +35,9 @@ button:hover {
       font-size: 20px;
       margin-top: 1%;
     }
+    body{
+      overflow-x: hidden;
+    }
 
 
 
