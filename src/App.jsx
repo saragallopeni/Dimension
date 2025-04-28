@@ -2,7 +2,7 @@
 import "./index.css";
 import { Canvas} from '@react-three/fiber';
 import gsap from "gsap";
-import React, {useEffect } from 'react';
+import React, {useEffect, useState } from 'react';
 import { ScrollTrigger } from "gsap/all";
 import Samsung from "./components/Samsung";
 import Samsung2 from "./components/Samsung2";
@@ -18,10 +18,23 @@ import SecondMoon from "./components/Secondmoon";
 
 const App = () => {
 
-
+  const [isMobile, setIsMobile] = useState(false);
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); 
+
+    return () => window.removeEventListener('resize', handleResize);
+
+
+
+
    const tl = gsap.timeline();
 
     tl.to('span',{
@@ -73,6 +86,52 @@ const App = () => {
 
   {/* style */}
   
+  const first_animation_style ={
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    display: 'flex',
+    gridTemplateColumns: '60% 40%',
+    width: '90vw',
+    height: '70dvh',
+    boxSizing: 'border-box',
+    background: 'transparent',
+    flexDirection: isMobile ? 'column' : 'row',
+  }
+
+  const box_shadow_style ={
+    width: '80vw',
+    background: 'linear-gradient(black 50%, transparent)', 
+    height: '80dvh',
+    borderRadius: '30px' ,
+    border: '2px solid white',
+    position: 'absolute',
+    top: isMobile ? '155dvh' : '120dvh',
+  
+  }
+
+  const style_style = {
+    display: 'flex',
+    position: 'absolute', 
+    color: 'white', 
+    left: '12vw',
+    top: isMobile ? '160dvh' : '150dvh', 
+    fontSize: isMobile ? '10px' : '20px' ,
+    fontFamily: 'Archivo'
+  }
+
+  const windowsmall_style = {
+    display: 'flex',
+    fontSize: isMobile ? '35px' : '50px',
+    }
+
+    const mainmoon_style = {
+      position: 'absolute', 
+      left: isMobile ? '' : '-30vw', 
+      top: isMobile ? '240dvh' : '220dvh', 
+      width: '100vw'
+    }
 
   const header_style ={
     position: 'absolute', 
@@ -173,15 +232,17 @@ const App = () => {
 
 
         {/* first animation*/}
-      <div style={{
+      <div 
+      style={{
         display: 'flex', 
         background:'transparent',
               justifyContent: 'center',
               alignItems: 'center',
               width: '100vw',
               height: '100dvh',
-               position: 'relative'
-      }}>
+               position: 'relative'}     
+      }
+      >
 
 <Canvas  shadows >
   <ambientLight intensity={4}/>
@@ -191,54 +252,61 @@ const App = () => {
 
       <div 
       className="first_animation"
-      style={{
-        position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  display: 'grid',
-  gridTemplateColumns: '60% 40%',
-  width: '90vw',
-  height: '70dvh',
-  boxSizing: 'border-box',
-  background: 'transparent',
+      style={
+        first_animation_style
+  //       position: 'absolute',
+  // top: '50%',
+  // left: '50%',
+  // transform: 'translate(-50%, -50%)',
+  // display: 'flex',
+  // gridTemplateColumns: '60% 40%',
+  // width: '90vw',
+  // height: '70dvh',
+  // boxSizing: 'border-box',
+  // background: 'transparent',
         
-            }}>
+            }>
 
 
-          <Canvas style={{         marginLeft: '10px',     background: 'linear-gradient(black 50%, transparent)',
-
-        marginRight: '10px',}}  shadows >
+          <Canvas style={{marginLeft: '10px', background: 'linear-gradient(black 50%, transparent)',marginRight: '10px',boxShadow: 'inset 0 0 30px #6c3667'}}  shadows >
             <ambientLight intensity={5}/>
-            <directionalLight position={[-1,0,0]} intensity={3} color={'white'}/>
-                              <directionalLight position={[0,2,3]} intensity={3} color={'white'}/>
+            <directionalLight position={[0,2,3]} intensity={3} color={'white'}/>
                               <directionalLight position={[0,2,-3]} intensity={3} color={'darkred'}/>
                               <directionalLight position={[0,-2,3]} intensity={3} color={'blue'}/>
                               <directionalLight position={[2,0,3]} intensity={3} color={'darkred'}/>
                               <directionalLight position={[-2,0,3]} intensity={3} color={'blue'}/>
+                                                            <directionalLight position={[0,0,3]} intensity={5} />
+                                                            <directionalLight position={[0,0,-3]}intensity={5} />
+                                                            <directionalLight position={[0,1,0]} intensity={5}/>
+                                                            <directionalLight position={[0,-1,0]} intensity={5}/>
+                                                            <directionalLight position={[1,0,0]} intensity={5}/>
+                                                            <directionalLight position={[-1,0,0]} intensity={5}/>
             <Samsung ></Samsung>
             <OrbitControls minDistance={3} maxDistance={5}  rotateSpeed={0.4}
   zoomSpeed={0.6}
-  enablePan={false} 
-  enableZoom={false} 
   enableRotate={window.innerWidth > 768} />
             <Stats />
                         </Canvas>
 
-        <Canvas style={{         marginLeft: '10px',     background: 'linear-gradient(black 50%, transparent)',
-
-        marginRight: '10px',}} camera={{position:[0,0,6.5], aspect: window.innerWidth / window.innerHeight }} >
-        <ambientLight intensity={5}/>
+        <Canvas style={{marginLeft: '10px', background: 'linear-gradient(black 50%, transparent)', marginRight: '10px',boxShadow: 'inset 0 0 30px #6c3667'}}  >
+        <ambientLight intensity={0.5}/>
+        <orthographicCamera position={[0,0,6.5]}></orthographicCamera>
                               <directionalLight position={[0,2,3]} intensity={3} color={'white'}/>
                               <directionalLight position={[0,2,-3]} intensity={3} color={'darkred'}/>
                               <directionalLight position={[0,-2,3]} intensity={3} color={'blue'}/>
                               <directionalLight position={[2,0,3]} intensity={3} color={'darkred'}/>
                               <directionalLight position={[-2,0,3]} intensity={3} color={'blue'}/>
+                                                            <directionalLight position={[0,0,3]} intensity={5} />
+                                                            <directionalLight position={[0,0,-3]}intensity={5} />
+                                                            <directionalLight position={[0,1,0]} intensity={5}/>
+                                                            <directionalLight position={[0,-1,0]} intensity={5}/>
+                                                            <directionalLight position={[1,0,0]} intensity={5}/>
+                                                            <directionalLight position={[-1,0,0]} intensity={5}/>
+
+
       <Samsung2></Samsung2>
-      <OrbitControls minDistance={5} maxDistance={7}  rotateSpeed={0.4}
+      <OrbitControls minDistance={6} maxDistance={7}  rotateSpeed={0.4}
   zoomSpeed={0.6}
-  enablePan={false} 
-  enableZoom={false}
   enableRotate={window.innerWidth > 768}/>
       <Stats/>
       </Canvas>
@@ -247,24 +315,26 @@ const App = () => {
 
 
       <div style={{width: '100vw', height: '150dvh',  display: 'flex',justifyContent: 'center', alignItems: 'center' ,backgroundImage:`url(${supernova2})`,backgroundSize: 'cover'}}>
-        <div className="boxshadow" style={{width: '80vw',background: 'linear-gradient(black 50%, transparent)', height: '80dvh',borderRadius: '30px' ,boxShadow: '0px 2px 10px solid gray'}}>
+        <div className="boxshadow" style={box_shadow_style}>
           <Canvas style={{position: 'absolute', zIndex: '9999'}}>
-          <ambientLight intensity={25}/>
-                              <directionalLight position={[0,2,3]} intensity={3} color={'white'}/>
+          <ambientLight intensity={0.5}/>
+          <directionalLight position={[0,2,3]} intensity={3} color={'white'}/>
                               <directionalLight position={[0,2,-3]} intensity={3} color={'darkred'}/>
                               <directionalLight position={[0,-2,3]} intensity={3} color={'blue'}/>
                               <directionalLight position={[2,0,3]} intensity={3} color={'darkred'}/>
                               <directionalLight position={[-2,0,3]} intensity={3} color={'blue'}/>
+                                                            <directionalLight position={[0,3,0]} intensity={5} />
+                                                            <directionalLight position={[0,0,-3]}intensity={5} />
+                                                            <directionalLight position={[0,1,0]} intensity={5}/>
+                                                            <directionalLight position={[0,-1,0]} intensity={5}/>
+                                                            <directionalLight position={[1,0,0]} intensity={5}/>
+                                                            <directionalLight position={[-1,0,0]} intensity={5}/>
             <Samsung ></Samsung>
-            <OrbitControls minDistance={3} maxDistance={7} rotateSpeed={0.4}
-  zoomSpeed={0.6}
-  enablePan={false} 
-  enableZoom={false}
-  enableRotate={window.innerWidth > 768}/>
+            <OrbitControls minDistance={5} maxDistance={7} rotateSpeed={0.4} zoomSpeed={0.6}/>
             <Stats />
           </Canvas>
         </div>
-        <div style={{display: 'flex',position: 'absolute', color: 'white', left: '12vw',top: '150dvh', fontFamily: 'Archivo', fontWeight: '700'}}>
+        <div className="style" style={style_style}>
           <h1>It’s not just a product
             <br></br> — 
             it’s a world
@@ -280,19 +350,19 @@ const App = () => {
       
       
        <div style={{display: 'flex',justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',boxSizing:'border-box',width: '80vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontWeight: '700', fontSize: '25px'}}>
-        <Canvas camera={{position: [0,0,-2], aspect: window.innerWidth / window.innerHeight }} style={{position: 'absolute', left: '-30vw', top: '200dvh'}}>          
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',boxSizing:'border-box',width: '80vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontSize: '25px'}}>
+        <Canvas className="mainmoon" camera={{position: [0,0,-2.1],aspect: window.innerWidth / window.innerHeight }} style={mainmoon_style}>          
           <directionalLight position={[1,-2,0]} intensity={0.7} />
           <directionalLight position={[0,-2,0]} intensity={0.5}/>
           {/* <directionalLight position={[0,-1,0]} intensity={0.2}/> */}
           <Greet></Greet>
         </Canvas>
-        <h1 className="windowsmall" style={{display: 'flex'}}>Where <br></br> form meets feeling — <br></br>explore 3D not as a shape,<br></br> but as a dimension of experience</h1>
+        <h1 className="windowsmall" style={windowsmall_style}>Where <br></br> form meets feeling — <br></br>explore 3D not as a shape,<br></br> but as a dimension of experience</h1>
         </div>
        </div>
 
 
-       <div style={{display: 'flex', width: '100vw', gridTemplateColumns: 'repeat(3,40%)',gridGap: '1%',padding: '35px', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
+       <div style={{display: 'flex',flexDirection: 'column', width: '100vw', gridTemplateColumns: 'repeat(3,40%)',gridGap: '1%',padding: '35px', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
         <Canvas camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
           <ambientLight intensity={1}/>
           <spotLight intensity={25} position={[0,0,-3]}/>

@@ -25,7 +25,7 @@ const SecondMoon = () => {
 
         <mesh  position={[0,0,4.4]}  ref={coreRef} receiveShadow>
           <sphereGeometry args={[0.30, 24,24]}/>
-          <meshPhysicalMaterial side={2}  map={texture}  bumpMap={texture} bumpScale={5.0} specular={'lighblue'} shininess={10} wireframe color={'white'}/>
+          <meshPhysicalMaterial side={2}  map={texture}  bumpMap={texture} bumpScale={5.0} specular={'lighblue'} shininess={10} wireframe color={'violet'}/>
         </mesh>
 
 

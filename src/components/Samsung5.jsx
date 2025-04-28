@@ -3,6 +3,7 @@ import { TextureLoader } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 import cameraImage from "/camera.png";
+import phoneTexImage from "/tekstura.jpg";
 
 const Samsung4 = () => {
      const geometry = new RoundedBoxGeometry(5, 2.5, 0.2, 15, 0.2);
@@ -31,13 +32,18 @@ const Samsung4 = () => {
      });
 
      const cameraTexture = useLoader(TextureLoader, cameraImage);
+     const phoneTexture = useLoader(TextureLoader,phoneTexImage);
 
     return(
 
         <group rotation={rotate} >
 
         <mesh  geometry={geometry} >
-            <meshStandardMaterial  color={'gray'} />
+        <meshPhysicalMaterial  map={phoneTexture}
+                        color={'#0b5345'}
+                        roughness={0.2}
+                        bumpMap={phoneTexture} bumpScale={1.0}
+                         />
         </mesh>
   
 

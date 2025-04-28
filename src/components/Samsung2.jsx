@@ -4,6 +4,7 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import cameraImage from "/camera.png";
 import { VideoTexture } from "three";
+import phoneTexImage from "/tekstura.jpg";
 const Samsung2 = () => {
      const geometry = new RoundedBoxGeometry(5, 2.5, 0.2, 15, 0.2);
      const screen = new RoundedBoxGeometry(4.8, 2.2, 0.03, 8, 0.1);
@@ -45,13 +46,19 @@ const Samsung2 = () => {
      });
 
      const cameraTexture = useLoader(TextureLoader, cameraImage);
+     const phoneTexture = useLoader(TextureLoader,phoneTexImage);
+     
 
     return(
 
         <group  rotation={rotate} position={[0,-1.7,3.6]} ref={meshRef} >
 
         <mesh  geometry={geometry} >
-            <meshPhongMaterial  color={'black'}  shininess={50} specular={'gray'} />
+        <meshPhysicalMaterial  map={phoneTexture}
+                        color={'black'}
+                        roughness={0.2}
+                        bumpMap={phoneTexture} bumpScale={1.0}
+                         />
         </mesh>
   
 

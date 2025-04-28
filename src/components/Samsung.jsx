@@ -4,6 +4,7 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import cameraImage from "/camera.png";
 import { VideoTexture } from "three";
+import phoneTexImage from "/tekstura.jpg";
 
 
 const Samsung = () => {
@@ -49,15 +50,17 @@ const Samsung = () => {
      });
 
      const cameraTexture = useLoader(TextureLoader, cameraImage);
+     const phoneTexture = useLoader(TextureLoader,phoneTexImage);
 
     return(
 
         <group ref={meshRef} >
 
         <mesh  geometry={geometry} >
-            <meshStandardMaterial  color={'gray'}
+            <meshPhysicalMaterial  map={phoneTexture}
+                        color={'black'}
                         roughness={0.2}
-                        metalness={1}
+                        bumpMap={phoneTexture} bumpScale={1.0}
                          />
         </mesh>
   
@@ -65,7 +68,7 @@ const Samsung = () => {
 
         {videoTexture && (
          <mesh  geometry={screen} position={[0, 0, 0.1]}>
-            <meshPhongMaterial   map={videoTexture}  shininess={50} specular={'gray'}  />
+            <meshPhongMaterial   map={videoTexture}   shininess={50} specular={'gray'}  />
         </mesh>  )}         
 
          

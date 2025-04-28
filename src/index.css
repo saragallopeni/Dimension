@@ -28,17 +28,47 @@ button:hover {
 
 
   @media (max-width: 1090px) {
-    .first_animation {
-      flex-direction: column;
-      top: 2%; 
-      width: 90vw;
-      height: auto; 
-    }
-    .smallwindow {
-      font-size: 20px;
-      margin-top: 1%;
-    }
     body {
       overflow-x: hidden;
     }
+  }
+
+  @media (max-width: 320px) {
+    body {
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+    .title{
+      font-size: 20px;
+    }
+    .design{
+      top: 10%;
+      height: 20dvh;
+      border: 2px solid white;
+      background-color: red;
+      position: fixed;
+      left: 0;
+      width: 100vw;
+      z-index: 99999;
+      text-align: left;
+
+    }
+
+    .design h1 span{
+      font-size: 20px;
+      position: absolute;    
+    }
+    .first_animation{
+      top: 100dvh;
+      border: 2px solid white;
+      flex-direction: column;  
+  }
+  .style{
+    top: 220dvh;
+    font-size: 15px;
+    position: fixed;
+  }
+  .mainphone{
+    top: 180dvh;
+  }
   }
