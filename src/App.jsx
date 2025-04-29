@@ -19,49 +19,38 @@ import Samsung1 from "./components/Samsungi1";
 const App = () => {
 
   const [isMobile, setIsMobile] = useState(false);
-  gsap.registerPlugin(ScrollTrigger);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
-
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      const width = window.innerWidth;
+      setIsMobile(width <= 768);
+      setIsTablet(width > 768 && width <= 1024);
     };
-
+  
     window.addEventListener('resize', handleResize);
-    handleResize(); 
-
-    return () => window.removeEventListener('resize', handleResize);
-
-
-
-
-   const tl = gsap.timeline();
-
-    tl.to('span',{
+    handleResize();
+  
+    // GSAP animation timeline (MOVED ABOVE return)
+    const tl = gsap.timeline();
+  
+    tl.to('span', {
       duration: 0.1,
       opacity: 1,
       stagger: 0.1,
       ease: 'power1.inOut'
-    }).to('span',{
+    }).to('span', {
       duration: 0.1,
       opacity: 0,
       stagger: 0.1,
       ease: 'power1.inOut'
-    }).to('.design',{
+    }).to('.design', {
       duration: 0.1,
       position: 'absolute',
       top: '-20%',
       ease: 'power1.inOut'
     });
-
-
-
   
-   
-    
-
-
-
     gsap.to('.header', {
       background: 'transparent',
       ease: 'expo.inOut',
@@ -71,14 +60,9 @@ const App = () => {
         end: "bottom bottom",
       }
     });
-
-
   
-
-
- 
-
-  },[]);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 
 
@@ -106,7 +90,7 @@ const App = () => {
     height: '80dvh',
     borderRadius: '30px' ,
     position: 'absolute',
-    top: isMobile ? '155dvh' : '120dvh',
+    top: isMobile ? '155dvh' : isTablet ? '100dvh' : '120dvh',
   
   }
 
@@ -115,8 +99,8 @@ const App = () => {
     position: 'absolute', 
     color: 'white', 
     left: isMobile ? '' : '12vw',
-    top: isMobile ? '160dvh' : '150dvh', 
-    fontSize: isMobile ? '10px' : '20px' ,
+    top: isMobile ? '160dvh' : isTablet ? '140dvh' : '150dvh', 
+    fontSize: isMobile ? '10px' : isTablet ? '25px' : '20px' ,
     fontFamily: 'Archivo'
   }
 
@@ -418,24 +402,9 @@ const App = () => {
 
         </div>         
 
- 
-
-
-
-
-
-
-
         {/* <div style={{width: '100%', height: '40px', position: 'absolute', bottom: '0%', backgroundColor: ' rgb(228, 226, 226)', display: 'flex', justifyContent: 'center', alignitems: 'center'}} >
           <Footer ></Footer>
         </div> */}
-
-
-      
-        
-      
-
-
 
       </div>  
   )
