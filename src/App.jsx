@@ -105,7 +105,6 @@ const App = () => {
     background: 'linear-gradient(black 50%, transparent)', 
     height: '80dvh',
     borderRadius: '30px' ,
-    border: '2px solid white',
     position: 'absolute',
     top: isMobile ? '155dvh' : '120dvh',
   
@@ -316,7 +315,7 @@ const App = () => {
 
       <div style={{width: '100vw', height: '150dvh',  display: 'flex',justifyContent: 'center', alignItems: 'center' ,backgroundImage:`url(${supernova2})`,backgroundSize: 'cover'}}>
         <div className="boxshadow" style={box_shadow_style}>
-          <Canvas style={{position: 'absolute', zIndex: '9999'}}>
+          <Canvas style={{position: 'absolute', zIndex: '9999',borderRadius: '50px',     boxShadow: 'inset 5px 15px 10px 10px rgb(44, 24, 52)'}}>
           <ambientLight intensity={0.5}/>
           <directionalLight position={[0,2,3]} intensity={3} color={'white'}/>
                               <directionalLight position={[0,2,-3]} intensity={3} color={'darkred'}/>
