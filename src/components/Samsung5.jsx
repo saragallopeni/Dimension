@@ -40,7 +40,7 @@ const Samsung4 = () => {
 
         <mesh  geometry={geometry} >
         <meshPhysicalMaterial  map={phoneTexture}
-                        color={'#0b5345'}
+                        color={'white'}
                         roughness={0.2}
                         bumpMap={phoneTexture} bumpScale={1.0}
                          />

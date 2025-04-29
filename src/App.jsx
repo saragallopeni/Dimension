@@ -14,7 +14,7 @@ import Greet from "./components/Greet";
 import supernova2 from "/stars.jpg";
 import wp2 from "/wp5.png";
 import SecondMoon from "./components/Secondmoon";
-
+import Samsung1 from "./components/Samsungi1";
 
 const App = () => {
 
@@ -114,7 +114,7 @@ const App = () => {
     display: 'flex',
     position: 'absolute', 
     color: 'white', 
-    left: '12vw',
+    left: isMobile ? '' : '12vw',
     top: isMobile ? '160dvh' : '150dvh', 
     fontSize: isMobile ? '10px' : '20px' ,
     fontFamily: 'Archivo'
@@ -128,8 +128,23 @@ const App = () => {
     const mainmoon_style = {
       position: 'absolute', 
       left: isMobile ? '' : '-30vw', 
-      top: isMobile ? '240dvh' : '220dvh', 
+      top: isMobile ? '215dvh' : '180dvh', 
       width: '100vw'
+    }
+
+    const three_phone_style ={
+      display: 'flex', 
+      flexDirection: isMobile ? 'column' : 'row',
+      width:'100vw', 
+      padding: isMobile ? '5%' : '',
+      gridTemplateColumns: 'repeat(3,40%)',
+      gridGap: '1%',
+      padding: '35px', 
+      justifyContent: 'center',
+      alignItems: 'center',
+      boxSizing: 'border-box' ,
+      height: isMobile ? '300dvh' : '100dvh', 
+      background: 'linear-gradient(lightgray,white)'
     }
 
   const header_style ={
@@ -313,7 +328,7 @@ const App = () => {
       </div>
 
 
-      <div style={{width: '100vw', height: '150dvh',  display: 'flex',justifyContent: 'center', alignItems: 'center' ,backgroundImage:`url(${supernova2})`,backgroundSize: 'cover'}}>
+      <div style={{width: '100vw', height: '105dvh',  display: 'flex',justifyContent: 'center', alignItems: 'center' ,backgroundImage:`url(${supernova2})`,backgroundSize: 'cover'}}>
         <div className="boxshadow" style={box_shadow_style}>
           <Canvas style={{position: 'absolute', zIndex: '9999',borderRadius: '50px',     boxShadow: 'inset 5px 15px 10px 10px rgb(44, 24, 52)'}}>
           <ambientLight intensity={0.5}/>
@@ -322,13 +337,13 @@ const App = () => {
                               <directionalLight position={[0,-2,3]} intensity={3} color={'blue'}/>
                               <directionalLight position={[2,0,3]} intensity={3} color={'darkred'}/>
                               <directionalLight position={[-2,0,3]} intensity={3} color={'blue'}/>
-                                                            <directionalLight position={[0,3,0]} intensity={5} />
+                                                            <directionalLight position={[0,-3,30]} intensity={5} />
                                                             <directionalLight position={[0,0,-3]}intensity={5} />
                                                             <directionalLight position={[0,1,0]} intensity={5}/>
                                                             <directionalLight position={[0,-1,0]} intensity={5}/>
                                                             <directionalLight position={[1,0,0]} intensity={5}/>
                                                             <directionalLight position={[-1,0,0]} intensity={5}/>
-            <Samsung ></Samsung>
+            <Samsung1></Samsung1>
             <OrbitControls minDistance={5} maxDistance={7} rotateSpeed={0.4} zoomSpeed={0.6}/>
             <Stats />
           </Canvas>
@@ -350,7 +365,7 @@ const App = () => {
       
        <div style={{display: 'flex',justifyContent: 'center', alignItems: 'center',width: '100vw', height: '100dvh', background: 'linear-gradient(black,gray,lightgray)'}}>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',boxSizing:'border-box',width: '80vw',height: '50dvh', fontFamily: 'Archivo', color: 'white', fontSize: '25px'}}>
-        <Canvas className="mainmoon" camera={{position: [0,0,-2.1],aspect: window.innerWidth / window.innerHeight }} style={mainmoon_style}>          
+        <Canvas className="mainmoon" camera={{position: [0,0,-2.1]}} style={mainmoon_style}>          
           <directionalLight position={[1,-2,0]} intensity={0.7} />
           <directionalLight position={[0,-2,0]} intensity={0.5}/>
           {/* <directionalLight position={[0,-1,0]} intensity={0.2}/> */}
@@ -361,10 +376,11 @@ const App = () => {
        </div>
 
 
-       <div style={{display: 'flex',flexDirection: 'column', width: '100vw', gridTemplateColumns: 'repeat(3,40%)',gridGap: '1%',padding: '35px', justifyContent: 'center',alignItems: 'center',boxSizing: 'border-box' ,height: '70dvh', background: 'linear-gradient(lightgray,white)'}}>
-        <Canvas camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
+       <div className="threephones" style={three_phone_style}>
+        <Canvas camera={{position: [0,0,-3.5]}} >
           <ambientLight intensity={1}/>
-          <spotLight intensity={25} position={[0,0,-3]}/>
+          <directionalLight position={[0,2,-3]} intensity={5} />
+          <directionalLight position={[0,2,3]} intensity={5} />
           <Samsung3></Samsung3>
           <OrbitControls minDistance={4} maxDistance={4} rotateSpeed={0.4}
   zoomSpeed={0.6}
@@ -374,9 +390,10 @@ const App = () => {
           <Stats />
         </Canvas>
 
-        <Canvas camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
-          <ambientLight intensity={1}/>
-          <spotLight intensity={25} position={[0,0,-3]}/>
+        <Canvas camera={{position: [0,0,-3.5]}} >
+        <ambientLight intensity={1}/>
+        <directionalLight position={[0,2,-3]} intensity={5} />
+        <directionalLight position={[0,2,3]} intensity={5} />
           <Samsung4 ></Samsung4>
           <OrbitControls minDistance={4} maxDistance={4} rotateSpeed={0.4}
   zoomSpeed={0.6}
@@ -386,9 +403,10 @@ const App = () => {
           <Stats />
         </Canvas>
 
-        <Canvas camera={{position: [0,0,-3.5], aspect: window.innerWidth / window.innerHeight }} >
-          <ambientLight intensity={1}/>
-          <spotLight intensity={25} position={[0,0,-3]}/>
+        <Canvas camera={{position: [0,0,-3.5]}} >
+        <ambientLight intensity={1}/>
+        <directionalLight position={[0,2,-3]} intensity={5} />
+        <directionalLight position={[0,2,3]} intensity={5} />
           <Samsung5></Samsung5>
           <OrbitControls minDistance={4} maxDistance={4} rotateSpeed={0.4}
   zoomSpeed={0.6}

@@ -54,7 +54,7 @@ const Samsung = () => {
 
     return(
 
-        <group ref={meshRef} >
+        <group  >
 
         <mesh  geometry={geometry} >
             <meshPhysicalMaterial  map={phoneTexture}

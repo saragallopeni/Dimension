@@ -1,13 +1,13 @@
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
 import { TextureLoader } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import cameraImage from "/camera.png";
+import { VideoTexture } from "three";
 import phoneTexImage from "/tekstura.jpg";
 
 
-
-const Samsung4 = () => {
+const Samsung1 = () => {
      const geometry = new RoundedBoxGeometry(5, 2.5, 0.2, 15, 0.2);
      const screen = new RoundedBoxGeometry(4.8, 2.2, 0.03, 8, 0.1);
      const camera = new RoundedBoxGeometry(1.5, 1, 0.04, 1, 1);
@@ -16,19 +16,34 @@ const Samsung4 = () => {
 
      
 
-
-
-     const rotate = [0,0,Math.PI /2];
+          const [videoTexture, setVideoTexture] = useState(null);
      
+     
+          useEffect(() => {
+             const video = document.createElement("video");
+             video.src = "./gif.mp4"; 
+             video.crossOrigin = "Anonymous";
+             video.loop = true;
+             video.muted = true;
+             video.play();
+         
+             const texture = new VideoTexture(video);
+             setVideoTexture(texture);
+             return () => {
+                 texture.dispose();
+                 video.pause();
+               };
+           },[]);
+
+     const rotate = [Math.PI / 1,0,0];
+
 
 
      const meshRef = useRef(); 
 
      useFrame(() => {
        if (meshRef.current) {
-        //  meshRef.current.rotation.x += 0.001;
-        //   meshRef.current.rotation.y += 0.001;
-         meshRef.current.rotation.y -= 0.01;
+         meshRef.current.rotation.x -= 0.01;
 
          
        }
@@ -37,14 +52,13 @@ const Samsung4 = () => {
      const cameraTexture = useLoader(TextureLoader, cameraImage);
      const phoneTexture = useLoader(TextureLoader,phoneTexImage);
 
-
     return(
 
-        <group rotation={rotate} >
+        <group  rotation={rotate}>
 
         <mesh  geometry={geometry} >
-        <meshPhysicalMaterial  map={phoneTexture}
-                        color={'blue'}
+            <meshPhysicalMaterial  map={phoneTexture}
+                        color={'black'}
                         roughness={0.2}
                         bumpMap={phoneTexture} bumpScale={1.0}
                          />
@@ -52,10 +66,10 @@ const Samsung4 = () => {
   
 
 
-
+        {videoTexture && (
          <mesh  geometry={screen} position={[0, 0, 0.1]}>
-            <meshPhongMaterial color={'black'}  shininess={50} specular={'gray'}  />
-        </mesh>           
+            <meshPhongMaterial   map={videoTexture}   shininess={50} specular={'gray'}  />
+        </mesh>  )}         
 
          
     
@@ -63,7 +77,15 @@ const Samsung4 = () => {
 
 
         <mesh geometry={camera} position={[1.5, -0.6, -0.1]}>
-            <meshPhongMaterial color={'darkblue'} shininess={50} specular={'darkblue'} metalness={1}/>
+            <meshPhysicalMaterial  color={'black'} 
+            transmission={1}
+            thickness={0.1}
+            opacity={1}
+            clearcoat={1}
+            clearcoatRoughness={0}
+            ior={1.5}
+            metalness={0}
+            />
         </mesh>
 
 
@@ -131,17 +153,6 @@ const Samsung4 = () => {
               <mesh geometry={button} rotation={[0, 0, Math.PI /2]} position={[-2.41,-0.01,-0.01]}>
                 <meshStandardMaterial  color={'black'}/>
               </mesh>
-         
-            {/* <group position={[5.5,0.5,2]}>
-        <mesh>
-        <sphereGeometry args={[1,524,524]}/>
-        <meshPhysicalMaterial side={2} map={starsTexture} emissive={'blue'} emissiveIntensity={0.5}/>
-      </mesh> */}
-              {/* <mesh>
-              <sphereGeometry args={[2.02,524,524]}/>
-              <meshPhysicalMaterial wireframe color={'lightblue'}/>
-            </mesh> */}
-            {/* </group> */}
 
 
 
@@ -153,4 +164,4 @@ const Samsung4 = () => {
 
 };
 
-export default Samsung4;
+export default Samsung1;
