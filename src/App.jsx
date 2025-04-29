@@ -17,6 +17,7 @@ import SecondMoon from "./components/Secondmoon";
 import Samsung1 from "./components/Samsungi1";
 
 const App = () => {
+  
 
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
@@ -24,14 +25,14 @@ const App = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobile(width <= 768);
-      setIsTablet(width > 768 && width <= 1024);
+      setIsMobile(width < 769);
+      setIsTablet(width > 768 && width < 1500);
     };
   
     window.addEventListener('resize', handleResize);
     handleResize();
-  
-    // GSAP animation timeline (MOVED ABOVE return)
+    gsap.registerPlugin(ScrollTrigger);
+
     const tl = gsap.timeline();
   
     tl.to('span', {
@@ -90,7 +91,7 @@ const App = () => {
     height: '80dvh',
     borderRadius: '30px' ,
     position: 'absolute',
-    top: isMobile ? '155dvh' : isTablet ? '100dvh' : '120dvh',
+    top: isMobile ? '100dvh' : isTablet ? '100dvh' : '120dvh',
   
   }
 
@@ -98,36 +99,35 @@ const App = () => {
     display: 'flex',
     position: 'absolute', 
     color: 'white', 
-    left: isMobile ? '' : '12vw',
-    top: isMobile ? '160dvh' : isTablet ? '140dvh' : '150dvh', 
-    fontSize: isMobile ? '10px' : isTablet ? '25px' : '20px' ,
+    left: isMobile ? '20vw' : isTablet ? '15vw' : '13vw',
+    top: isMobile ? '105dvh' : isTablet ? '104dvh' : '155dvh', 
+    fontSize: isMobile ? '10px' : isTablet ? '18px' : '19px' ,
     fontFamily: 'Archivo'
   }
 
   const windowsmall_style = {
     display: 'flex',
-    fontSize: isMobile ? '35px' : '50px',
+    fontSize: isMobile ? '55px' : isTablet ? '60px' : '61px',
     }
 
     const mainmoon_style = {
       position: 'absolute', 
-      left: isMobile ? '' : '-30vw', 
-      top: isMobile ? '215dvh' : '180dvh', 
+      left: isMobile ? '' : isTablet ?  '-20vw' : '-30vw', 
+      top: isMobile ? '170dvh' : isTablet ? '185dvh' : '180dvh', 
       width: '100vw'
     }
 
     const three_phone_style ={
       display: 'flex', 
       flexDirection: isMobile ? 'column' : 'row',
-      width:'100vw', 
-      padding: isMobile ? '5%' : '',
+      width: '100vw' , 
+      padding: isMobile ? '5%' : isTablet ? '' : '',
       gridTemplateColumns: 'repeat(3,40%)',
       gridGap: '1%',
-      padding: '35px', 
       justifyContent: 'center',
       alignItems: 'center',
       boxSizing: 'border-box' ,
-      height: isMobile ? '300dvh' : '100dvh', 
+      height: isMobile ? '300dvh' : isTablet ? '50dvh' : '50dvh', 
       background: 'linear-gradient(lightgray,white)'
     }
 
@@ -312,7 +312,7 @@ const App = () => {
       </div>
 
 
-      <div style={{width: '100vw', height: '105dvh',  display: 'flex',justifyContent: 'center', alignItems: 'center' ,backgroundImage:`url(${supernova2})`,backgroundSize: 'cover'}}>
+      <div style={{width: '100vw', height: '130dvh',  display: 'flex',justifyContent: 'center', alignItems: 'center' ,backgroundImage:`url(${supernova2})`,backgroundSize: 'cover'}}>
         <div className="boxshadow" style={box_shadow_style}>
           <Canvas style={{position: 'absolute', zIndex: '9999',borderRadius: '50px',     boxShadow: 'inset 5px 15px 10px 10px rgb(44, 24, 52)'}}>
           <ambientLight intensity={0.5}/>
