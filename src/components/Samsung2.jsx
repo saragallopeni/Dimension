@@ -55,7 +55,7 @@ const Samsung2 = () => {
 
         <mesh  geometry={geometry} >
         <meshPhysicalMaterial  map={phoneTexture}
-                        color={'black'}
+                        color={'lightblue'}
                         roughness={0.2}
                         bumpMap={phoneTexture} bumpScale={1.0}
                          />
@@ -74,7 +74,7 @@ const Samsung2 = () => {
 
 
         <mesh geometry={camera} position={[1.5, -0.6, -0.1]}>
-            <meshPhongMaterial  color={'black'}  shininess={50} specular={'gray'}/>
+            <meshPhongMaterial  color={'lightblue'}  shininess={50} specular={'gray'}/>
         </mesh>
 
 

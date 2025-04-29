@@ -68,7 +68,7 @@ const Samsung1 = () => {
 
         {videoTexture && (
          <mesh  geometry={screen} position={[0, 0, 0.1]}>
-            <meshPhongMaterial   map={videoTexture}   shininess={50} specular={'gray'}  />
+            <meshPhongMaterial   map={videoTexture}   shininess={50} specular={'lightgray'}  />
         </mesh>  )}         
 
          

@@ -107,13 +107,13 @@ const App = () => {
 
   const windowsmall_style = {
     display: 'flex',
-    fontSize: isMobile ? '55px' : isTablet ? '60px' : '61px',
+    fontSize: isMobile ? '35px' : isTablet ? '60px' : '61px',
     }
 
     const mainmoon_style = {
       position: 'absolute', 
       left: isMobile ? '' : isTablet ?  '-20vw' : '-30vw', 
-      top: isMobile ? '170dvh' : isTablet ? '185dvh' : '180dvh', 
+      top: isMobile ? '160dvh' : isTablet ? '185dvh' : '180dvh', 
       width: '100vw'
     }
 
@@ -282,7 +282,7 @@ const App = () => {
             <Samsung ></Samsung>
             <OrbitControls minDistance={3} maxDistance={5}  rotateSpeed={0.4}
   zoomSpeed={0.6}
-  enableRotate={window.innerWidth > 768} />
+  />
             <Stats />
                         </Canvas>
 
@@ -305,7 +305,7 @@ const App = () => {
       <Samsung2></Samsung2>
       <OrbitControls minDistance={6} maxDistance={7}  rotateSpeed={0.4}
   zoomSpeed={0.6}
-  enableRotate={window.innerWidth > 768}/>
+ />
       <Stats/>
       </Canvas>
       </div>
@@ -370,7 +370,7 @@ const App = () => {
   zoomSpeed={0.6}
   enablePan={false} 
   enableZoom={false} 
-  enableRotate={window.innerWidth > 768} />
+   />
           <Stats />
         </Canvas>
 
@@ -383,8 +383,7 @@ const App = () => {
   zoomSpeed={0.6}
   enablePan={false} 
   enableZoom={false}
-  enableRotate={window.innerWidth > 768}/>
-          <Stats />
+/>          <Stats />
         </Canvas>
 
         <Canvas camera={{position: [0,0,-3.5]}} >
@@ -396,7 +395,7 @@ const App = () => {
   zoomSpeed={0.6}
   enablePan={false} 
   enableZoom={false} 
-  enableRotate={window.innerWidth > 768}/>
+  />
           <Stats />
         </Canvas>        
 
