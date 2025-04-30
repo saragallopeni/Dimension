@@ -15,6 +15,7 @@ import supernova2 from "/stars.jpg";
 import wp2 from "/wp5.png";
 import SecondMoon from "./components/Secondmoon";
 import Samsung1 from "./components/Samsungi1";
+import Footer from "./components/Footer";
 
 const App = () => {
   
@@ -31,26 +32,28 @@ const App = () => {
   
     window.addEventListener('resize', handleResize);
     handleResize();
-    gsap.registerPlugin(ScrollTrigger);
+    // gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline();
+    // const tl = gsap.timeline();
   
-    tl.to('span', {
-      duration: 0.1,
-      opacity: 1,
-      stagger: 0.1,
-      ease: 'power1.inOut'
-    }).to('span', {
-      duration: 0.1,
-      opacity: 0,
-      stagger: 0.1,
-      ease: 'power1.inOut'
-    }).to('.design', {
-      duration: 0.1,
-      position: 'absolute',
-      top: '-20%',
-      ease: 'power1.inOut'
-    });
+    // tl.to('span', {
+    //   duration: 0.1,
+    //   opacity: 1,
+    //   stagger: 0.1,
+    //   ease: 'power1.inOut'
+    // })
+    // .to('span', {
+    //   duration: 0.1,
+    //   opacity: 0,
+    //   stagger: 0.1,
+    //   ease: 'power1.inOut'
+    // })
+    // .to('.design', {
+    //   duration: 0.1,
+    //   position: 'absolute',
+    //   top: '-20%',
+    //   ease: 'power1.inOut'
+    // });
   
     gsap.to('.header', {
       background: 'transparent',
@@ -131,9 +134,24 @@ const App = () => {
       background: 'linear-gradient(lightgray,white)'
     }
 
+    const desing_style = {
+      display: 'flex',
+      justifyContent: 'center', 
+      alignItems: 'center',
+      width : '100vw', 
+      backgroundColor:'black',
+      // ,fontFamily: 'Schibsted Grotesk',
+      // fontWeight: '200', 
+      // boxSizing:'border-box',
+      // left: isMobile ? '8vw' : isTablet ?'' : '',
+        fontSize: isMobile ? '30px' : isTablet ? '' : '30px',
+      // top: isMobile ? '5dvh' : '',
+       color: 'white'
+    }
+    
+
   const header_style ={
     position: 'absolute', 
-    zIndex: '9999',
     background: 'linear-gradient(black 40%, transparent)',
     width: '100vw', 
     height: '20dvh',
@@ -194,39 +212,39 @@ const App = () => {
     
           </div>
 
-          <div className="design" style={{display: 'flex',justifyContent: 'center', alignItems: 'center',width : '100vw', backgroundColor:'black' }}> 
-          <h1 style={{fontFamily: 'Schibsted Grotesk',fontWeight: '200', fontSize: '60px', color: 'white'}} >
-  <span style={{opacity: '1'}}>W</span>
-  <span style={{opacity: '0'}}>h</span>
-  <span style={{opacity: '0'}}>e</span>
-  <span style={{opacity: '0'}}>r</span>
-  <span style={{opacity: '0'}}>e</span>
-  <span style={{opacity: '0'}}>&nbsp; </span>
-  <span style={{opacity: '0'}}>d</span>
-  <span style={{opacity: '0'}}>e</span>
-  <span style={{opacity: '0'}}>s</span>
-  <span style={{opacity: '0'}}>i</span>
-  <span style={{opacity: '0'}}>g</span>
-  <span style={{opacity: '0'}}>n</span>
-  <span style={{opacity: '0'}}>&nbsp; </span>
-  <span style={{opacity: '0'}}>m</span>
-  <span style={{opacity: '0'}}>e</span>
-  <span style={{opacity: '0'}}>e</span>
-  <span style={{opacity: '0'}}>t</span>
-  <span style={{opacity: '0'}}>s</span>
-  <span style={{opacity: '0'}}>&nbsp; </span>
-  <span style={{opacity: '0'}}>d</span>
-  <span style={{opacity: '0'}}>i</span>
-  <span style={{opacity: '0'}}>m</span>
-  <span style={{opacity: '0'}}>e</span>
-  <span style={{opacity: '0'}}>n</span>
-  <span style={{opacity: '0'}}>s</span>
-  <span style={{opacity: '0'}}>i</span>
-  <span style={{opacity: '0'}}>o</span>
-  <span style={{opacity: '0'}}>n</span>
-  <span style={{opacity: '0'}}>.</span>
-          </h1>
-          </div>
+          {/* <div className="design" style={desing_style}>  */}
+          {/* <h1 style={desing_style}  > */}
+  {/* <span style={{opacity: '1'}}>W</span> */}
+  {/* <span style={{opacity: '0'}}>h</span> */}
+  {/* <span style={{opacity: '0'}}>e</span> */}
+  {/* <span style={{opacity: '0'}}>r</span> */}
+  {/* <span style={{opacity: '0'}}>e</span> */}
+  {/* <span style={{opacity: '0'}}>&nbsp; </span> */}
+  {/* <span style={{opacity: '0'}}>d</span> */}
+  {/* <span style={{opacity: '0'}}>e</span> */}
+  {/* <span style={{opacity: '0'}}>s</span> */}
+  {/* <span style={{opacity: '0'}}>i</span> */}
+  {/* <span style={{opacity: '0'}}>g</span> */}
+  {/* <span style={{opacity: '0'}}>n</span> */}
+  {/* <span style={{opacity: '0'}}>&nbsp; </span> */}
+  {/* <span style={{opacity: '0'}}>m</span> */}
+  {/* <span style={{opacity: '0'}}>e</span> */}
+  {/* <span style={{opacity: '0'}}>e</span> */}
+  {/* <span style={{opacity: '0'}}>t</span> */}
+  {/* <span style={{opacity: '0'}}>s</span> */}
+  {/* <span style={{opacity: '0'}}>&nbsp; </span> */}
+  {/* <span style={{opacity: '0'}}>d</span> */}
+  {/* <span style={{opacity: '0'}}>i</span> */}
+  {/* <span style={{opacity: '0'}}>m</span> */}
+  {/* <span style={{opacity: '0'}}>e</span> */}
+  {/* <span style={{opacity: '0'}}>n</span> */}
+  {/* <span style={{opacity: '0'}}>s</span> */}
+  {/* <span style={{opacity: '0'}}>i</span> */}
+  {/* <span style={{opacity: '0'}}>o</span> */}
+  {/* <span style={{opacity: '0'}}>n</span> */}
+  {/* <span style={{opacity: '0'}}>.</span> */}
+          {/* </h1> */}
+          {/* </div> */}
 
 
         {/* first animation*/}
@@ -401,9 +419,7 @@ const App = () => {
 
         </div>         
 
-        {/* <div style={{width: '100%', height: '40px', position: 'absolute', bottom: '0%', backgroundColor: ' rgb(228, 226, 226)', display: 'flex', justifyContent: 'center', alignitems: 'center'}} >
-          <Footer ></Footer>
-        </div> */}
+          <Footer style={{position: 'absolute', backgroundColor: 'white'}}></Footer>
 
       </div>  
   )
