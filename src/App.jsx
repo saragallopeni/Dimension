@@ -197,16 +197,16 @@ const App = () => {
      
     <h1 className={"title"} style={{fontFamily : 'Schibsted Grotesk', fontWeight: '500'}}>
 
-      DIMENSION SEVEN</h1>
+      DIMENSION SEVEN
+      <br>
+      </br>
+      <p style={{fontFamily : 'Schibsted Grotesk', fontSize: '10px'}} > Scroll to zoom in/out and click-drag to rotate the model!</p>
+      </h1>
 
     
  
     </div>
-    <nav>
-        <a  href="#" style={a}>Home</a>
-        <a href="#" style={a}>About</a>
-        <a href="#" style={a}>Contact</a>
-    </nav>
+
    
    
     
@@ -346,7 +346,7 @@ const App = () => {
                                                             <directionalLight position={[1,0,0]} intensity={5}/>
                                                             <directionalLight position={[-1,0,0]} intensity={5}/>
             <Samsung1></Samsung1>
-            <OrbitControls minDistance={5} maxDistance={7} rotateSpeed={0.4} zoomSpeed={0.6}/>
+            <OrbitControls minDistance={4} maxDistance={7} rotateSpeed={0.4} zoomSpeed={0.6}/>
             <Stats />
           </Canvas>
         </div>
