@@ -6,7 +6,7 @@ Welcome to Dimension Seven, a visually immersive 3D experience created using Rea
 
 ## Live Demo
 You can view a live demo of this project by clicking on the link below:
-[Live Demo](https://dimension-seven.vercel.app/)
+https://dimension-seven.vercel.app/
 
 ## Features
 - **3D Model Interactions**: Scroll to zoom in/out and click-drag to rotate the model!
